@@ -10,5 +10,20 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          icons: ['lucide-react']
+        }
+      }
+    },
+    sourcemap: false,
+    minify: 'terser',
+    target: 'es2015'
   },
+  server: {
+    port: 3000,
+    host: true
+  }
 });
